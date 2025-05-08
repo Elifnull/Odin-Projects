@@ -1,4 +1,19 @@
 *{
     background-color:blanchedalmond;
+}
 
-};
+.main-body {
+    display: flex;
+    
+}
+
+.leftMainBodyTextContainer {
+    flex: 1 1 25%;
+    border: 2px solid black;
+}
+
+.rightMainBodyEtchSketchContinaer{
+    flex: 1 1 74%;
+    margin-left: 1%;
+    border: 2px solid black;
+}
