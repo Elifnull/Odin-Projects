@@ -3,25 +3,27 @@
 }
 
 .main-body {
+    padding: 5%;
     display: flex;
+    justify-content: center;
 }
 
 .leftMainBodyTextContainer {
-    flex: 1 1 25%;
     border: 2px solid black;
+
 }
 
 .rightMainBodyEtchSketchContinaer{
-    flex: 1 1 75%;
+    aspect-ratio: 1/1;
     margin-left: 1%;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
-    height: 75vh;
-    
+    min-height: 70vh;
+    min-width: 25vw;
 }
 
 .etchSketchtile{
-    flex: 1 1 3.1%;
-    border: 1px solid black;
+    aspect-ratio: 1/1;
+    flex-shrink: 2;
 }

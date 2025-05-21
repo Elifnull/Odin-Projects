@@ -1,17 +1,12 @@
 
 
 const container = document.querySelector("#Etch-a-Sketch");
-
-
+const sizeButton = document.querySelector("#changeSizeButton");
 function squared(value) {
     return value*value;
 };
 
-//Values for sketch box
-
-let rowLength = 32;
-let boxHeightWidthPercentage = 100/(rowLength);
-let totalBoxCount = squared(rowLength);
+//Values for sketch box//
 
 function randomColourHexGenerator(){
     const hexValue = [0,1,2,3,4,5,6,7,8,9,0,"A","B","C","D","E","F"];
@@ -24,15 +19,54 @@ function randomColourHexGenerator(){
     return colour;
 };
 
-
-
-for (i = 1; i < totalBoxCount; i++) {
-    const etchBox = document.createElement("div");
-    etchBox.classList.add("etchSketchtile");
-    etchBox.addEventListener("mouseover", () => {
-        etchBox.style.backgroundColor = randomColourHexGenerator();
-    });
-    //etchBox.addEventListener();
-
-    container.appendChild(etchBox);
+function clearRowStructure(){
+    while (container.firstChild){
+        container.removeChild(container.firstChild);
+    }
 };
+
+function executeRowStructure(totalBoxCount,boxHeightWidthPercentage){
+    clearRowStructure(); 
+    
+    
+    for (i = 0; i < totalBoxCount; i++) {
+        const etchBox = document.createElement("div");
+        etchBox.classList.add("etchSketchtile");
+        etchBox.style.flexBasis =`${boxHeightWidthPercentage}%`;
+        let opacityCounter = 0;
+        etchBox.addEventListener("mouseover", () => {
+            if( etchBox.style.opacity < 100){
+                etchBox.style.backgroundColor = randomColourHexGenerator();
+                etchBox.style.opacity = opacityCounter;
+                opacityCounter+= 10;
+            }
+            else{
+                etchBox.style.backgroundColor = "#000000";
+            }
+            
+        });
+        container.appendChild(etchBox);
+    };
+};
+
+//button functions//
+
+let rowLength ;
+
+
+sizeButton.addEventListener("click", (e) => {
+    rowLengthString = prompt("how long do you want the row to be?", 64);
+    rowLength = parseInt(rowLengthString);
+    console.log(rowLength);
+
+    if (rowLength > 101 || rowLength < 0) {
+        alert('enter a value greater than zero and less than 101')
+    }
+    else { console.log(`${typeof(rowLength)}`);
+        
+        const boxHeightWidthPercentage = 100/(rowLength);
+        const totalBoxCount = squared(rowLength);
+        
+        console.log(totalBoxCount);
+        executeRowStructure(totalBoxCount,boxHeightWidthPercentage);}
+});
