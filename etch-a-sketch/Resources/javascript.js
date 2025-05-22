@@ -6,7 +6,9 @@ const resetButton = document.querySelector("#clearEtchBoard");
 function squared(value) {
     return value*value;
 };
-executeRowStructure(16,25);
+
+executeRowStructure(4096,1.5625)
+
 //Values for sketch box//
 
 function randomColourHexGenerator(){
@@ -68,5 +70,5 @@ sizeButton.addEventListener("click", (e) => {
 
 resetButton.addEventListener("click", () => {
     clearRowStructure();
-    executeRowStructure(16,25)
+    executeRowStructure(4096,1.5625)
 });
