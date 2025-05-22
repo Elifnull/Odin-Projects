@@ -9,11 +9,11 @@
 }
 
 .leftMainBodyTextContainer {
-    border: 2px solid black;
-
+ display: flex;
 }
 
 .rightMainBodyEtchSketchContinaer{
+    background-color: black;
     aspect-ratio: 1/1;
     margin-left: 1%;
     border: 2px solid black;

@@ -1,11 +1,12 @@
-
-
 const container = document.querySelector("#Etch-a-Sketch");
 const sizeButton = document.querySelector("#changeSizeButton");
+const resetButton = document.querySelector("#clearEtchBoard");
+
+
 function squared(value) {
     return value*value;
 };
-
+executeRowStructure(16,25);
 //Values for sketch box//
 
 function randomColourHexGenerator(){
@@ -28,22 +29,16 @@ function clearRowStructure(){
 function executeRowStructure(totalBoxCount,boxHeightWidthPercentage){
     clearRowStructure(); 
     
-    
     for (i = 0; i < totalBoxCount; i++) {
         const etchBox = document.createElement("div");
         etchBox.classList.add("etchSketchtile");
         etchBox.style.flexBasis =`${boxHeightWidthPercentage}%`;
-        let opacityCounter = 0;
+        etchBox.style.opacity = 100;
+        etchBox.style.backgroundColor = "white";
         etchBox.addEventListener("mouseover", () => {
-            if( etchBox.style.opacity < 100){
                 etchBox.style.backgroundColor = randomColourHexGenerator();
-                etchBox.style.opacity = opacityCounter;
-                opacityCounter+= 10;
-            }
-            else{
-                etchBox.style.backgroundColor = "#000000";
-            }
-            
+                etchBox.style.opacity -=10;
+                console.log(etchBox.style.opacity);
         });
         container.appendChild(etchBox);
     };
@@ -69,4 +64,9 @@ sizeButton.addEventListener("click", (e) => {
         
         console.log(totalBoxCount);
         executeRowStructure(totalBoxCount,boxHeightWidthPercentage);}
+});
+
+resetButton.addEventListener("click", () => {
+    clearRowStructure();
+    executeRowStructure(16,25)
 });
