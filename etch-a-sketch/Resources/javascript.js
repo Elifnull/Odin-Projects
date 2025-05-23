@@ -51,13 +51,20 @@ function executeRowStructure(totalBoxCount,boxHeightWidthPercentage){
 let rowLength ;
 
 
-sizeButton.addEventListener("click", (e) => {
+function acceptPromptValue() {
     rowLengthString = prompt("how long do you want the row to be?", 64);
     rowLength = parseInt(rowLengthString);
     console.log(rowLength);
 
+    return rowLength;
+}
+
+sizeButton.addEventListener("click", (e) => {
+    rowLength = acceptPromptValue();
+
     if (rowLength > 101 || rowLength < 0) {
-        alert('enter a value greater than zero and less than 101')
+        alert('enter a value greater than zero and less than 101, and try again!')
+
     }
     else { console.log(`${typeof(rowLength)}`);
         
