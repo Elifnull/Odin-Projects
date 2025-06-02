@@ -17,10 +17,19 @@ Functions that will be called
     return num1/num2;
  };
 
+/*
+dynamic Variables
+*/
+ const initialNumber = 0;
+ const operatorValue = [];
+ const secondNumber = 0;
+
+
  /*
 Logic that organizes functions
 */
 
-function operationsCaller (num1,operator,num2){
+ function operatorLogic (num1,operator,numb2){
 
-};
+ };
+
