@@ -1,0 +1,25 @@
+.calContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.Display{
+    width: auto;
+    height: 50px;
+    border-style: solid;
+    margin: 1px;
+    border-radius: 3%;
+}
+
+.CalculatorBody {
+    border-style: solid;
+    border-radius: 3%;
+    padding: 3px;
+}
+
+.calculatorButton{
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    width: 50px;
+    margin: 1px;
+}
